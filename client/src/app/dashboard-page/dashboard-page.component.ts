@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import { resolve } from 'q';
 
 @Component({
   selector: 'app-dashboard-page',
