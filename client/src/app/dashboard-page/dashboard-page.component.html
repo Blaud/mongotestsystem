@@ -1,8 +1,63 @@
 <input
         id="client_id"
         type="number"
+        placeholder="Client ID"
         #client_id
 >
-<plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
 
-<button (click)="getButtonClicked($event)">Get</button>
+
+<mat-form-field>
+        <input 
+        matInput [matDatepicker]="picker"
+        placeholder="Choose start date"
+        id="startDate"
+        #startDate
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+        <input 
+        matInput [matDatepicker]="picker1"
+        placeholder="Choose end date"
+        id="endDate"
+        #endDate
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+</mat-form-field>  
+<br>
+<button (click)="getButtonClicked($event)">Get</button>Returns all messages for all time by default (if not all fields are filled)
+<plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+{{messages ? ("First date: "+ messages[0][0].timestamp+"  Last date: "+ messages[0][messages.length-1].timestamp) : " "}}
+<br>
+<button (click)="createMessages($event)">Create Messages</button>
+<input
+        id="messages_count"
+        type="number"
+        placeholder="Messages count"
+        #messages_count
+>
+<input
+        id="start_user_id"
+        type="number"
+        placeholder="Start user id"
+        #start_user_id
+>
+<input
+        id="end_user_id"
+        type="number"
+        placeholder="End user id"
+        #end_user_id
+>
+<input
+        id="days_back"
+        type="number"
+        placeholder="Days back from now"
+        #days_back
+>
+<br>
+{{messageCreateStatus}}
+<br>
+<button (click)="dropDB($event)">Drop DB</button>{{dbDropStatus}}

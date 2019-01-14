@@ -7,6 +7,10 @@ import { DashboardPageComponent } from './dashboard-page/dashboard-page.componen
 import { UserstatisticService } from './userstatistic.service';
 import { PlotlyModule } from 'angular-plotly.js';
 import { HttpClientModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatNativeDateModule} from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PlotlyModule
+    PlotlyModule,
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   providers: [
     UserstatisticService
